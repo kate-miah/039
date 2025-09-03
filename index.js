@@ -57,13 +57,20 @@ const newspaper = {
         date: 19-10-2023,
         text: 'ipsum loren'
     }], 
-    showArticles: function() {
+    /*    showArticles: function() {
         this.articles.forEach((currentArticle) => {
             console.log(`${this.title} --- ${currentArticle.author} - ${currentArticle.text}`);
         })
     }
+     */
+    showArticles: function() {
+        this.articles.forEach(show.bind(this)); // this => nwspaper
+    }
 }
 
+function show(currentArticle) {
+    console.log(`${this.title} --- ${currentArticle.author} - ${currentArticle.text}`);
+}
 
 // Передача контекста
 
@@ -86,3 +93,5 @@ call(this, arg1, arg2, arg3, ...) - метод функции, который в
 */
 
 const wrappedFunction = sayVxh.bind(auto) // оборачивает вызов йункции в контексте, возвращает ссылкку (посилання) на готовую к работе функцию, которой this = auto 
+
+//wrappedFunction(5,6);
