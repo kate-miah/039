@@ -1,3 +1,5 @@
+'use strict'
+
 /* Контекст */
 
 const obj = {
@@ -98,7 +100,7 @@ const wrappedFunction = sayVxh.bind(auto) // оборачивает вызов �
 
 
 // Practice
-const user = {
+/*const user = {
     name: 'John',
     lastName: 'Doe',
     age: 25,
@@ -131,3 +133,48 @@ function showFilms() {
 
 const userShowFilms = showFilms.bind(user);
 userShowFilms();
+
+*/
+//Стрелочные функции
+
+function fnDeclare(a, b, c) {
+    console.dir(arguments)
+    //Вариант 1 - проще
+    /* пройтись обчныи циклом и найти сумму всех элементов в arguments
+
+    let sum = 0;
+    for (let i =0; i < arguments.lenght; i++) {
+    sum += arguments[i]
+    }
+    return sum;
+    */
+    
+    //Вариант 2 - переделать arguments в обычный Array и воспользоваться метолдом массива
+
+    return Array.from(arguments).reduce((accum, value) => accum+value, 0);
+}
+
+//Task
+
+function fnJoin() {
+    return Array.from(arguments).join(' ');
+}
+
+
+ const arrFn = (...args) => args.reduce((accum, value) => accum+value, 0);
+
+ // у стрелочных функций не работают arguents
+ // оператор rest - остаточные (залишковi) параметри - ...
+
+ function restArr(...arrayOfArgs) {
+    console.log(arrayOfArgs);
+ }
+
+// 1.
+
+ const getSentence = (...args) => args.join(' ');
+// 2. 
+
+const numbs= [1, 2, 5, 3, 77, 34, 90];
+
+Math.max(...numbs);
