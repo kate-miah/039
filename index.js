@@ -95,3 +95,39 @@ call(this, arg1, arg2, arg3, ...) - метод функции, который в
 const wrappedFunction = sayVxh.bind(auto) // оборачивает вызов йункции в контексте, возвращает ссылкку (посилання) на готовую к работе функцию, которой this = auto 
 
 //wrappedFunction(5,6);
+
+
+// Practice
+const user = {
+    name: 'John',
+    lastName: 'Doe',
+    age: 25,
+    favoriteFilms: [{
+        name: 'Wild Wild West',
+        date: 30-06-1999,
+    }, {
+        name: 'Matrix',
+        date: 30-03-1999,
+    }, {
+        name: 'The Lake House',
+        date: 16-06-2006,
+    }, {
+        name: 'The Notebook',
+        date: 25-06-2004,
+    }],
+
+    showMyMovies: function() {
+        this.favoriteFilms.forEach((currentFilm) => {
+            console.log(`${this.name} любить ${currentFilm.name}`);
+        })
+    }
+}
+function showFilms() {
+    this.favoriteFilms.forEach((currentFilm) => {
+        console.log(`${this.name} любить ${currentFilm.name}`);
+    })
+}
+
+
+const userShowFilms = showFilms.bind(user);
+userShowFilms();
