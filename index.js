@@ -2,12 +2,12 @@
 
 /* Контекст */
 
-const obj = {
-    key: 'value',
-    method: function() {
-        console.log(`key - &{this.key}`);
-    }
-}
+// const obj1= {
+//     key: 'value',
+//     method: function() {
+//         console.log(`key - &{this.key}`);
+//     }
+// }
 
 function test() { //Function declaration 
     console.log(this);
